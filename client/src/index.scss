@@ -7,6 +7,21 @@
 @tailwind utilities;
 
 
+// hide scrollbar
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -364,6 +379,7 @@
 
 }
 
+
 // Brand Cars Page Styles
 .brands-page {
   @apply min-h-screen;
@@ -386,5 +402,71 @@
         @apply text-primary font-semibold;
       }
     }
+  }
+
+  .right {
+    @apply w-[350px];
+
+    .container {
+      @apply flex flex-col gap-10 sticky top-20 pb-3 px-2;
+
+      .top-header {
+        @apply flex flex-col gap-4;
+
+        h2 {
+          @apply border-b border-gray-300;
+        }
+      }
+
+      .recent-posts, .socials, .top-header {
+        @apply border border-gray-400 rounded-md p-3;
+      }
+
+
+    }
+  }
+}
+
+
+
+// Single car page style
+.single-car_page {
+  @apply min-h-screen;
+
+.info-section_wrapper {
+  @apply bg-primary;
+  .info-section {
+    @apply max-w-[1200px] mx-auto flex gap-10 flex-col md:flex-row;
+
+    .description {
+      @apply flex-1 flex-col flex justify-center;
+
+      h2 {
+        @apply text-white font-bold sm:text-xl pb-5;
+      }
+
+      .content {
+        @apply leading-7 text-gray-400 max-sm:text-sm;
+      }      
+    }
+
+    .details {
+      @apply flex-1;
+
+      .container {
+        @apply shadow-md rounded-md bg-gray-200 py-8;
+
+        .rental-price {
+          @apply flex gap-2 items-center justify-center;
+        }
+      }
+    }
+  }
+}
+}
+
+.booking-form {
+  .input-container {
+    @apply mb-3
   }
 }

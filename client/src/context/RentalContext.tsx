@@ -31,7 +31,7 @@ const RentalProvider = ({ children }: { children: ReactNode }) => {
         fetchRentals();
     }, [fetchRentals]);
 
-    /** find the first array by brand and put them into an arra */
+    /** find the first array by brand and put them into an array */
     useEffect(() => {
         const fetchFirstEntryRentalByBrand = async () => {
           setBrandRentalsLoading(true);

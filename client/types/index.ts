@@ -118,3 +118,14 @@ export interface IComment {
   name?: string;
   email?: string;
 }
+
+
+export interface IBookingForm {
+  carId: string;
+  userId: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  location: string;
+  landMark: string;
+}

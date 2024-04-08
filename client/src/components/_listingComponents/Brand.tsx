@@ -36,7 +36,8 @@ const Brand = ({ handleNextStep, handlePreviousStep }: IStepperMethods) => {
     { name: "Toyota", value: "toyota" },
     { name: "BMW", value: "bmw" },
     { name: "Lexus", value: "lexus" },
-    { name: "Range Rover", value: "Range Rover"}
+    { name: "Range Rover", value: "Range Rover" },
+    {name: "Nissan", value: "nissan"}
   ];
 
   const rentalStore = useRentalListingStore();

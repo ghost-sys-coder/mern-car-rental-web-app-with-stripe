@@ -1,8 +1,7 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
-import ReactQuill from "react-quill"
+import ReactQuill from "react-quill";
 import "quill/dist/quill.snow.css";
 import "react-quill/dist/quill.snow.css";
-
 import { modules, formats } from "@/constants";
 import { IBlogProps } from "types";
 

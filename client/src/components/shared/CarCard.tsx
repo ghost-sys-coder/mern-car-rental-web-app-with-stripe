@@ -15,7 +15,7 @@ const CarCard = ({rental}: {rental: IFetchRentals}) => {
               className="absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover"
           />
           <div className="w-full z-10 absolute bottom-2 left-2">
-              <h2 className="text-white font-bold text-xl">{rental.title}</h2>
+              <h2 className="text-white font-bold sm:text-xl">{rental.title}</h2>
           </div>
     </Link>
   )

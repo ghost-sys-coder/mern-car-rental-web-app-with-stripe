@@ -26,6 +26,8 @@ import RecentPosts from "./shared/RecentPosts";
 import SocialLinks from "./shared/SocialLinks";
 import CarCard from "./shared/CarCard";
 import EditBlog from "./shared/EditBlog";
+import RentalFormModal from "./shared/RentalFormModal";
+import ImageGridModal from "./shared/ImageGridModal";
 
 export {
     AuthOptions,
@@ -55,5 +57,7 @@ export {
     RecentPosts,
     SocialLinks,
     CarCard,
-    EditBlog
+    EditBlog,
+    RentalFormModal,
+    ImageGridModal
 }

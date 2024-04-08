@@ -102,9 +102,15 @@ export const CarBrandsSkeleton = () => {
         <div className="sm:w-1/2 w-full h-[50px] bg-gray-300 rounded-md shadow-md"></div>
         <div className="sm:w-1/3 w-full h-[30px] bg-gray-300 rounded-md shadow-md"></div>
       </div>
-      <div className={`${shimmer} grid gap-4 grid-cols-1 max-sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 max-w-[1200px] mx-auto my-10`}>
-        {Array.from({ length: 6 }).map((_, index) => (
-          <div className="w-full h-[200px] rounded-md shadow-md bg-gray-200" key={index}></div>
+      <div className={`${shimmer} max-w-[1200px] mx-auto my-10`}>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index} className="w-full flex flex-col gap-5 rounded-md shadow-md mb-5">
+            <div className="h-[250px] sm:h-[300px] w-full bg-gray-200 shadow-md"></div>
+            <div className="flex-1 flex justify-between items-center gap-4 p-2">
+              <div className="h-[30px] bg-gray-200 rounded-md shadow-md w-1/3"></div>
+              <div className="h-[30px] bg-gray-200 rounded-md shadow-md w-[100px]"></div>
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -117,4 +123,22 @@ export const AllCarsPageSkeleton = () => {
       <div className="h-[40px] shadow-md rounded-md absolute bottom-6 left-2 right-2 bg-gray-300"></div>
     </div>
   ))
+}
+
+
+export const CarCardSkeleton = () => {
+  return (
+    <div className={`${shimmer} flex justify-start items-end h-[200px] rounded-md shadow-md w-full bg-gray-200 px-2 py-2`}>
+      <div className="sm:w-2/3 w-full h-[40px] shadow-md bg-gray-300"></div>
+    </div>
+  )
+}
+
+
+export const CarPageSkeleton = () => {
+  return (
+    <div className={`${shimmer}`}>
+      
+    </div>
+  )
 }

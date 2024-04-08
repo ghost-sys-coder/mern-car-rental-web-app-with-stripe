@@ -17,8 +17,8 @@ import { useRentalListingStore } from "@/context/AddRentalContext";
 import { useAuthContext } from "@/context/AuthContext";
 import { useRentalProvider } from "@/context/RentalContext";
 import ButtonContainer from "./ButtonContainer";
-import { arrayMove } from "react-sortable-hoc";
 import SortableList from "../shared/SortableList";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 const Images = ({ handlePreviousStep }: IStepperMethods) => {
   const {
@@ -163,18 +163,17 @@ const Images = ({ handlePreviousStep }: IStepperMethods) => {
     }
   };
 
-  /** handle sort end */
-  const onSortEnd = ({
-    oldIndex,
-    newIndex,
-  }: {
-    oldIndex: number;
-    newIndex: number;
-  }) => {
-    const newMedia = arrayMove(media, oldIndex, newIndex);
+  const onDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+
+    const newMedia = Array.from(media);
+    const [removed] = newMedia.splice(result.source.index, 1);
+    newMedia.splice(result.destination.index, 0, removed);
+
     setMedia(newMedia);
     rentalStore.updateState({ images: newMedia });
   };
+
 
   return (
     <div className="flex flex-col gap-3">
@@ -188,24 +187,24 @@ const Images = ({ handlePreviousStep }: IStepperMethods) => {
           <span className="text-primary">File Upload</span>
         </label>
       </div>
-      <div className="flex flex-col gap-2">
-        <Input
-          id="file"
-          type="file"
-          accept="image/*"
-          multiple
-          className="cursor-pointer hidden"
-          onChange={handleFileChange}
-        />
-        {preview && (
-          <SortableList
-            items={media}
-            onSortEnd={onSortEnd}
-            onDelete={handleDeleteImage}
-            axis="xy"
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div className="flex flex-col gap-2">
+          <Input
+            id="file"
+            type="file"
+            accept="image/*"
+            multiple
+            className="cursor-pointer hidden"
+            onChange={handleFileChange}
           />
-        )}
-      </div>
+          {preview && (
+            <SortableList
+              items={media}
+              onDelete={handleDeleteImage}
+            />
+          )}
+        </div>
+      </DragDropContext>
       <ButtonContainer
         handlePreviousStep={handlePreviousStep}
         text="Submit New Rental"

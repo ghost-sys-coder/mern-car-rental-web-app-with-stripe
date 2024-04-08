@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { IBlogData } from "types";
 
 const RecentPosts = () => {
-    const [isLoadingPosts, setIsLoadingPosts] = useState<boolean>(false);
+    const [isLoadingPosts, setIsLoadingPosts] = useState<boolean>(true);
     const [posts, setPosts] = useState<IBlogData[]>([]);
 
     useEffect(() => {
