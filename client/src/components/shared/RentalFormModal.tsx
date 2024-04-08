@@ -67,6 +67,8 @@ const RentalFormModal = ({ id }: { id: string }) => {
         e.preventDefault();
         setIsSubmitting(true);
 
+        console.log(details, startDate, endDate)
+
         try {
             const { status, data } = await axios.put("/", details);
             if (status === 200) {
@@ -155,7 +157,7 @@ const RentalFormModal = ({ id }: { id: string }) => {
                                 onClick={handleStartDateOpen}
                             >
                                 <CalendarCheck />
-                                <span>Select start dating</span>
+                                <span>Start dating</span>
                             </Label>
                             {openStartDate && (
                                 <Calendar
@@ -173,7 +175,7 @@ const RentalFormModal = ({ id }: { id: string }) => {
                                 onClick={handleEndDateOpen}
                             >
                                 <CalendarCheck />
-                                <span>Select ending date</span>
+                                <span>Ending date</span>
                             </Label>
                             {openEndDate && (
                                 <Calendar
